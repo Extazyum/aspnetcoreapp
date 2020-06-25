@@ -1,0 +1,14 @@
+﻿@page
+@model aspnetcoreapp.Pages.Infos_clientModel
+@{
+    ViewData["Title"] = "Infos_client";
+}
+@{
+    string ip = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
+    Response.Cookies.Append("last_open_date", DateTime.Now.ToShortDateString().ToString());
+    var cookies = string.Join("<li>", Request.Cookies);
+}
+<h1>Infos_client</h1>
+
+<h2>@ip</h2>
+<h2>@cookies</h2>
